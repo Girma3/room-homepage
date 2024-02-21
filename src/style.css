@@ -1,5 +1,6 @@
 body{
     min-height: 100vh;
+    max-width: 100vw;
     background-color: aquamarine;
 }
 ul{
@@ -11,7 +12,18 @@ ul{
    }
 
 a{
-    text-decoration: none;
+ text-decoration: none;
+}
+.part-one{
+    display: grid;
+}
+header{
+    position: relative;
+    background-image: url(./assets/images/mobile-image-hero-1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 46vh;
 }
 .close-nav-btn, .open-nav-btn{
   
@@ -23,6 +35,7 @@ a{
 }
 .open-nav-btn{
     background-image: url(./assets/images/icon-hamburger.svg);
+   background-color: inherit;
    }
 .close-nav-btn{
     background-image: url(./assets/images/icon-close.svg);
@@ -46,8 +59,33 @@ a{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-   
-   
+   }
+.slider-btns{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    bottom: 0;
+    left:63%;
+    padding: 0.5rem ;
+  
+}  
+.next-btn, .prev-btn{
+    background-color: black;
+    border: 0;
+    padding: 0.3rem 1rem 0.3rem 1rem;
+    
+} 
+@media (min-width:500px) {
+    body{
+        background-color: rgb(252, 252, 252);
+    }
+    .part-one{
+        grid-template-columns: 1fr 1fr;
+    }
+    .slider-btns{
+        left:100%
+    }
 }
 
 
