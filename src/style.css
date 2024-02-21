@@ -2,3 +2,52 @@ body{
     min-height: 100vh;
     background-color: aquamarine;
 }
+ul{
+    list-style: none;
+    padding: 1rem;
+    border: solid 2px green;
+    transition: all ease-in-out 500ms;
+    border:none
+   }
+
+a{
+    text-decoration: none;
+}
+.close-nav-btn, .open-nav-btn{
+  
+    width: 1.5rem;
+    aspect-ratio: 1;
+    border: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.open-nav-btn{
+    background-image: url(./assets/images/icon-hamburger.svg);
+   }
+.close-nav-btn{
+    background-image: url(./assets/images/icon-close.svg);
+    }
+   
+[data-spread = false]{
+    display: none;
+    
+}
+[data-spread = true]{
+    display: grid;
+    grid-template-columns: 4rem 3fr;
+    justify-self: center;
+   
+} 
+.title{
+ justify-self: center;
+ margin-right: 3rem;
+}
+.links{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+   
+   
+}
+
+
