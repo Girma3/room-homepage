@@ -1,3 +1,6 @@
+*{
+    margin: 0;
+}
 body{
     min-height: 100vh;
     max-width: 100vw;
@@ -14,15 +17,12 @@ ul{
 a{
  text-decoration: none;
 }
-.part-one{
+.part-one, .part-two{
     display: grid;
+    border: 0;
 }
 header{
     position: relative;
-    background-image: url(./assets/images/mobile-image-hero-1.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
     height: 46vh;
 }
 .close-nav-btn, .open-nav-btn{
@@ -32,6 +32,7 @@ header{
     border: 0;
     background-repeat: no-repeat;
     background-position: center;
+    cursor: pointer;
 }
 .open-nav-btn{
     background-image: url(./assets/images/icon-hamburger.svg);
@@ -67,25 +68,73 @@ header{
     background-color: black;
     bottom: 0;
     left:63%;
-    padding: 0.5rem ;
-  
-}  
+    padding: 0.8rem 1rem 0.8rem 1rem ;
+   }  
 .next-btn, .prev-btn{
-    background-color: black;
-    border: 0;
-    padding: 0.3rem 1rem 0.3rem 1rem;
+    background-color: rgb(157, 88, 88);
+    opacity: 0.7;
+    
+    padding: 0.7rem 1.2rem 0.7rem 1.2rem;
+  
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     
 } 
+.prev-btn{
+    background-image: url(./assets/images/icon-angle-left.svg);
+   
+    background-color: blue;
+}
+.next-btn{
+    background-image: url(./assets/images/icon-angle-right.svg);
+    background-color: yellow;
+}
+.show-furniture{
+    display: block;
+    width: 100%;
+    
+   }
+   .image-holder{
+    position: absolute;
+    top:0;
+    z-index: -1;
+    width: 100%;
+    height: 46vh;
+   
+   }
+   .image-holder > img{
+    width: 100%;
+    height: 100%;
+   }
 @media (min-width:500px) {
     body{
-        background-color: rgb(252, 252, 252);
+        background-color: rgb(255, 255, 255);
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    header{
+        height: 65vh;
     }
     .part-one{
         grid-template-columns: 1fr 1fr;
+        height: 65vh;
+      
+    }
+    .part-two{
+        grid-template-columns: 1fr 2fr 1fr;
+    }
+    .image-holder{
+        height: 65vh;
     }
     .slider-btns{
         left:100%
     }
+    .show-furniture{
+        width: 100%;
+        height: 250px;
+     }
 }
 
 
