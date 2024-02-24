@@ -17,7 +17,6 @@ closeNavbtn.addEventListener('click', () => {
     secondNav.setAttribute('data-spread', 'false')
     navHolder.classList.remove('close-nav-style')
     maskDivs.forEach(darkMask => {
-      // darkMask.style.backgroundColor = 'transparent'
       darkMask.classList.remove('black-mask')
     })
   }
@@ -52,6 +51,7 @@ btns.addEventListener('click', (e) => {
     sliderIndex++
     restrict()
     slider(product, divHolder, article, sliderIndex)
+    divHolder.classList.add('.fade')
   } else if (e.target.matches('[data-prev-btn]')) {
     sliderIndex--
     restrict()
