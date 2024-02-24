@@ -54,6 +54,8 @@ const product = [
     imgAlt: 'black chair'
   }
 ]
+// function that take two dom elments one to append image other article
+// and the array contain image and article as object
 function slider (array, domElementOne, domElementtwo, index) {
   array.forEach(element => {
     if (array.indexOf(element) === index) {
@@ -69,8 +71,11 @@ function appendElement (elementone, elementTwo, index) {
   const img = document.createElement('img')
   const productTitle = document.createElement('h1')
   const productDetail = document.createElement('p')
+  productDetail.style.animation = 'zoomin 2s'
+  productTitle.style.animation = 'zoomin 2s'
+  img.style.animation = 'zoomin 1s'
   img.alt = product[index].imgAlt
-  console.log(screenWidth)
+
   if (screenWidth >= 577) {
     img.src = product[index].productImg
   } else if (screenWidth <= 577) {
