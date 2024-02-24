@@ -25,21 +25,24 @@ ul {
 a {
   text-decoration: none;
 }
-.nav-holder {
-  padding: 0.5rem;
-}
 .part-one,
 .part-two {
   display: grid;
 }
-
 header {
   position: relative;
   height: 46vh;
 }
-
-.desktop-logo {
+.nav-holder {
+  padding: 1rem;
+}
+[data-spread="false"] {
   display: none;
+}
+[data-spread="true"] {
+  display: grid;
+  grid-template-columns: 3rem 4fr;
+  justify-self: center;
 }
 .close-nav-btn,
 .open-nav-btn {
@@ -61,56 +64,6 @@ header {
 .close-nav-style {
   background-color: white;
 }
-.mobile-logo {
-  text-align: center;
-  padding-top: 0.4rem;
-}
-.about-product {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 1rem;
-}
-[data-spread="false"] {
-  display: none;
-}
-[data-spread="true"] {
-  display: grid;
-
-  grid-template-columns: 3rem 4fr;
-  justify-self: center;
-}
-
-.buy-btn-holder {
-  width: 100%;
-  margin-top: 12px;
-}
-h1 {
-  font-size: 2.5rem;
-  word-wrap: break-word;
-}
-p {
-  margin-top: 12px;
-  color: hsl(0, 0%, 27%);
-  word-spacing: 0.1rem;
-  line-height: 1rem;
-  word-wrap: break-word;
-  letter-spacing: 1px;
-}
-.shop-btn {
-  border: 0;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 0.6rem;
-  letter-spacing: 0.5rem;
-  padding: 1rem 1rem 1rem 0;
-  background-color: inherit;
-}
-.shop-btn:hover {
-  opacity: 0.6;
-}
-
 .links {
   display: flex;
   flex-wrap: wrap;
@@ -131,7 +84,25 @@ p {
   padding-bottom: 0.3rem;
   transform: scaleX(0.6);
 }
-
+.desktop-logo {
+  display: none;
+}
+.mobile-logo {
+  text-align: center;
+  padding-top: 0.4rem;
+}
+/* slider image as hero */
+.image-holder {
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  width: 100%;
+  height: 46vh;
+}
+.image-holder > img {
+  width: 100%;
+  height: 100%;
+}
 .slider-btns {
   position: absolute;
   display: flex;
@@ -149,17 +120,52 @@ p {
   background-position: center;
   border: 0;
 }
-
-.next-btn:hover,
-.prev-btn:hover {
-  opacity: 0.7;
-}
 .prev-btn {
   background-image: url(./assets/images/icon-angle-left.svg);
 }
 .next-btn {
   background-image: url(./assets/images/icon-angle-right.svg);
 }
+.next-btn:hover,
+.prev-btn:hover {
+  opacity: 0.7;
+}
+.about-product {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 1rem;
+}
+h1 {
+  font-size: 2.5rem;
+  word-wrap: break-word;
+}
+p {
+  margin-top: 12px;
+  color: hsl(0, 0%, 27%);
+  word-spacing: 0.1rem;
+  line-height: 1rem;
+  word-wrap: break-word;
+  letter-spacing: 1px;
+}
+.buy-btn-holder {
+  width: 100%;
+  margin-top: 12px;
+}
+.shop-btn {
+  border: 0;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.6rem;
+  letter-spacing: 0.5rem;
+  padding: 1rem 1rem 1rem 0;
+  background-color: inherit;
+}
+.shop-btn:hover {
+  opacity: 0.6;
+}
+/* part two(3 columns grid style */
 .show-furniture {
   display: block;
   width: 100%;
@@ -170,39 +176,36 @@ p {
   justify-content: center;
   padding: 2rem;
 }
-
 .furniture-title {
   letter-spacing: 0.5rem;
   font-weight: 600;
   font-size: 1rem;
   line-height: 1.5rem;
 }
-.image-holder {
-  position: absolute;
-  top: 0;
-  z-index: -1;
-  width: 100%;
-  height: 46vh;
-}
 
-.image-holder > img {
-  width: 100%;
-  height: 100%;
-}
 .dark-mask {
-  height: min-content;
-
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: transparent;
+  margin: 0;
+}
+.black-mask {
+  background-color: rgba(0, 0, 0, 0.4);
 }
 @media (min-width: 900px) {
   body {
     background-color: rgb(255, 255, 255);
   }
-  .first-nav {
-    display: none;
+  .part-one {
+    grid-template-columns: 1.2fr 1fr;
+    height: 65vh;
+  }
+  header {
+    height: 65vh;
   }
   .nav-holder {
     background-color: inherit;
+  }
+  .first-nav {
+    display: none;
   }
   .second-nav {
     display: flex;
@@ -228,28 +231,6 @@ p {
   .close-nav-btn {
     display: none;
   }
-
-  .logo {
-    display: none;
-  }
-  header {
-    height: 65vh;
-  }
-  .part-one {
-    grid-template-columns: 1.2fr 1fr;
-    height: 65vh;
-  }
-  .about-product {
-    padding: 2rem;
-  }
-  .shop-btn {
-    padding: 1rem;
-  }
-
-  .part-two {
-    grid-template-columns: 1fr 2fr 1fr;
-  }
-
   .image-holder {
     height: 65vh;
   }
@@ -257,8 +238,21 @@ p {
     left: 100%;
     padding: 0;
   }
+  /* part two style */
+  .part-two {
+    grid-template-columns: 1fr 2fr 1fr;
+  }
+  .about-product {
+    padding: 2rem;
+  }
+  .shop-btn {
+    padding: 1rem;
+  }
   .show-furniture {
     width: 100%;
-    height: 250px;
+    height: 280px;
+  }
+  .black-mask {
+    background-color: transparent;
   }
 }
