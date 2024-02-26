@@ -51,7 +51,6 @@ btns.addEventListener('click', (e) => {
     sliderIndex++
     restrict()
     slider(product, divHolder, article, sliderIndex)
-    divHolder.classList.add('.fade')
   } else if (e.target.matches('[data-prev-btn]')) {
     sliderIndex--
     restrict()
